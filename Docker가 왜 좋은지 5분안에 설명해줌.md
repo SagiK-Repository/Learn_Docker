@@ -1,3 +1,6 @@
+문서정보 : 2022.09.22. 작성, 작성자 [@SAgiKPJH](https://github.com/SAgiKPJH)
+<br>
+
 # Docker가 왜 좋은지 5분안에 설명해줌
 
 - 개인적으로 모든 사람들이 Docker에 대해 배울 필요는 없다.
