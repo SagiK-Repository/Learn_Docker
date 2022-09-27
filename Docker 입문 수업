@@ -177,9 +177,9 @@
 
 - "docker ps"를 통해 접속할 httpd 컨테이너 이름을 확인한다. "ws2"라고 하자.
 - "docker exec -it ws2 /bin/bash" 입력
-- httpd에 의하면 http 창을 저장하는 디렉터리 위치는 /user/local/apache2/htdocs/ 에 존재한다.
+- httpd에 의하면 http 창을 저장하는 디렉터리 위치는 /usr/local/apache2/htdocs/ 에 존재한다.
 - 파일을 수정하기 위해 리눅스 명령어 "nano"를 설치한다. (용량을 줄이기 위해 설치가 되어 있지 않다.)
-  - "apt update" > "apt install n ano"
+  - "apt update" > "apt install nano"
 - "cd /usr/local/apache2/htdocs" > "ls"를 통해 "index.html"을 확인한다.
 - "nano index.html"을 통해 파일 내부로 들어가 "It works!"문구를 수정한다.
 - 인터넷에 "http://localhost:8888/index.html"을 입력하여 변경된 문구를 확인한다.
