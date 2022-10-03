@@ -27,7 +27,7 @@
   - [x] : [Docker가 왜 좋은지 5분안에 설명해줌](https://github.com/SagiK-Repository/Learn_Docker/blob/main/Docker%EA%B0%80%20%EC%99%9C%20%EC%A2%8B%EC%9D%80%EC%A7%80%205%EB%B6%84%EC%95%88%EC%97%90%20%EC%84%A4%EB%AA%85%ED%95%B4%EC%A4%8C.md)
   - [x] : [Docker 입문 수업](https://github.com/SagiK-Repository/Learn_Docker/blob/main/Docker%20%EC%9E%85%EB%AC%B8%20%EC%88%98%EC%97%85.md)
 - 중급과정
-  - [ ] : [도커 : 이미지 만드는 법 - Dockerfile & build](https://www.youtube.com/watch?v=0kQC19w0gTI)
+  - [ ] : [도커 : 이미지 만드는 법 - Dockerfile & build](https://github.com/SagiK-Repository/Learn_Docker/blob/main/%EB%8F%84%EC%BB%A4%20-%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EB%A7%8C%EB%93%9C%EB%8A%94%20%EB%B2%95%20-%20Dockerfile%20%26%20build.md)
 
 
 <br>
