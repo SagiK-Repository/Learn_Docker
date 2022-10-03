@@ -22,9 +22,12 @@
 
 ## 목표
 
-- [x] : [도커 한방에 정리 🐳](https://github.com/SagiK-Repository/Learn_Docker/blob/main/%EB%8F%84%EC%BB%A4%20%ED%95%9C%EB%B0%A9%EC%97%90%20%EC%A0%95%EB%A6%AC%20%F0%9F%90%B3.md)
-- [x] : [Docker가 왜 좋은지 5분안에 설명해줌](https://github.com/SagiK-Repository/Learn_Docker/blob/main/Docker%EA%B0%80%20%EC%99%9C%20%EC%A2%8B%EC%9D%80%EC%A7%80%205%EB%B6%84%EC%95%88%EC%97%90%20%EC%84%A4%EB%AA%85%ED%95%B4%EC%A4%8C.md)
-- [x] : [Docker 입문 수업](https://github.com/SagiK-Repository/Learn_Docker/blob/main/Docker%20%EC%9E%85%EB%AC%B8%20%EC%88%98%EC%97%85.md)
+- 기초과정
+  - [x] : [도커 한방에 정리 🐳](https://github.com/SagiK-Repository/Learn_Docker/blob/main/%EB%8F%84%EC%BB%A4%20%ED%95%9C%EB%B0%A9%EC%97%90%20%EC%A0%95%EB%A6%AC%20%F0%9F%90%B3.md)
+  - [x] : [Docker가 왜 좋은지 5분안에 설명해줌](https://github.com/SagiK-Repository/Learn_Docker/blob/main/Docker%EA%B0%80%20%EC%99%9C%20%EC%A2%8B%EC%9D%80%EC%A7%80%205%EB%B6%84%EC%95%88%EC%97%90%20%EC%84%A4%EB%AA%85%ED%95%B4%EC%A4%8C.md)
+  - [x] : [Docker 입문 수업](https://github.com/SagiK-Repository/Learn_Docker/blob/main/Docker%20%EC%9E%85%EB%AC%B8%20%EC%88%98%EC%97%85.md)
+- 중급과정
+  - [ ] : [도커 : 이미지 만드는 법 - Dockerfile & build](https://www.youtube.com/watch?v=0kQC19w0gTI)
 
 
 <br>
@@ -34,3 +37,4 @@
 - [도커 한방에 정리 🐳](https://www.youtube.com/watch?v=LXJhA3VWXFA)
 - [Docker 가 왜 좋은지 5분안에 설명해줌](https://www.youtube.com/watch?v=chnCcGCTyBg)
 - [Docker 입문수업](https://www.youtube.com/watch?v=Ps8HDIAyPD0&list=PLuHgQVnccGMDeMJsGq2O-55Ymtx0IdKWf)
+- [도커 : 이미지 만드는 법 - Dockerfile & build](https://www.youtube.com/watch?v=0kQC19w0gTI)
