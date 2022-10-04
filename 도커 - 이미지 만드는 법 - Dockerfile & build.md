@@ -59,7 +59,7 @@
      - -t : 만들 이미지의 이름(Tag)
      - . : 현재 위치에 있는 Dockerfile을 사용한다는 뜻이다.
    - "docker images"를 통해 이미지들을 확인한다.  
-   <img src="https://user-images.githubusercontent.com/66783849/193822543-335b324d-dd10-4894-bd0d-ab47d26b28eb.png" width="70%">
+   - <img src="https://user-images.githubusercontent.com/66783849/193822543-335b324d-dd10-4894-bd0d-ab47d26b28eb.png" width="70%">  
    ```bash
    REPOSITORY                TAG       IMAGE ID       CREATED         SIZE   
    web-server-commit         latest    f5cf0c110c98   8 minutes ago   72.8MB    
@@ -72,14 +72,17 @@
 
 <br>
 
-### python3 웹 서버 이미지 만들기
+## python3 웹 서버 이미지 만들기
 
-1. 이미지를 Run하여 컨테이너를 실행하고, 접속한다.
+### 1. 이미지를 Run하여 컨테이너를 실행하고, 접속한다.
    - "docker run --name web-server -it ubuntu:20.04"
    - 정지된 컨테이너를 재개하는 경우
      - "docker start web-server"
      - "docker exec -it web-server /bin/bash" 또는 "/bin/sh"로 실시간 접속한다. (-i : Interactive, -t : tty)
-2. python3를 설치한다.
+
+<br>
+
+### 2. python3를 설치한다.
    - "apt update"를 통해 apt를 최신상태로 갱신한다.
    - 업데이트 후 "apt install python3"를 통해 python3를 업데이트한다. (Y를 누르면 패치를 시작한다.)
    - "mkdir -p /var/www/html"를 통해 디렉터리를 만든다.
@@ -90,7 +93,9 @@
    ```bash
    Serving HTTP on 0.0.0.0 port 8000 (http://0.0.0.0:8000/) ...
    ```
-3. 2번의 경우를 Build로 진행한다. Build의 경우는 다음과 같이 빌드한다.
+<br>
+
+### 2번의 경우를 Build로 진행한다. Build의 경우는 다음과 같이 빌드한다.
    - 폴더에 index.html을 만들어 "Hello, <strong>Docker</strong>"라고 채워 넣는다.
    - Docker에 다음 내용을 채워넣는다.
    ```bash
