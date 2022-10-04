@@ -33,13 +33,16 @@
 
 ## 이미지 만들기 - 우분투 20.04 이미지 만들기
 
-1. 우분투 20.04 버전을 기반으로 컨테이너를 만들어 실행시킨다.
+### 1. 우분투 20.04 버전을 기반으로 컨테이너를 만들어 실행시킨다.
    - VScode 내에서 작업공간의 폴더에  를 선택 TERMINAL에 다음 내요을 입력한다.
    - "docker run --name web-server -it ubuntu:20.04" + 엔터
      - 컨테이너 이름 : web-server
      - 쉘에서 여러가지 명령을 실행하기 위해 -it 이라고 지정하였다.
    - 이후 우분투 20.04 Image를 다운 및 실행은 한다. (VScode의 도커 확장기능을 통해 Image 및 Container의 상황을 바로 확인할 수 있다.)
-2. Commit으로 이미지 만들기 - 실행한 컨테이너를 Commit하여 이미지를 만들어본다..
+
+<br>
+
+### 2. Commit으로 이미지 만들기 - 실행한 컨테이너를 Commit하여 이미지를 만들어본다..
    - 또 한개의 Terminal에서 다음과 같이 입력한다.
    - "docker commit wev-server web-server-commit"
    - "docker images"를 통해 "web-server-commit"이라는 이미지가 만들어졌는지 확인한다.
@@ -48,7 +51,10 @@
    web-server-commit         latest    f5cf0c110c98   10 seconds ago   72.8MB  
    ubuntu                    20.04     a0ce5a295b63   4 weeks ago      72.8MB  
    ```
-3. Build를 통해 이미지 만들기 - Dockerfile을 통해 빌드하여 이미지를 만들어본다.
+
+<br>
+
+### 3. Build를 통해 이미지 만들기 - Dockerfile을 통해 빌드하여 이미지를 만들어본다.
    - VScode에서 폴더에 접속한 뒤, Dockerfile 이라는 파일을 만든다. (도커가 자동으로 인식한다)
    - 내용을 다음과 같이 작성한다.
    ```bash
@@ -70,7 +76,7 @@
    ubuntu                    20.04     a0ce5a295b63   4 weeks ago     72.8MB  
    ```
 
-<br>
+<br><br>
 
 ## python3 웹 서버 이미지 만들기
 
