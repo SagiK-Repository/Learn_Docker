@@ -41,6 +41,7 @@
   - 쉘에서 여러가지 명령을 실행하기 위해 -it 이라고 지정하였다.
 - 이후 우분투 20.04 Image를 다운 및 실행은 한다. (VScode의 도커 확장기능을 통해 Image 및 Container의 상황을 바로 확인할 수 있다.)
 
+
 <br>
 
 ### 2. Commit으로 이미지 만들기 - 실행한 컨테이너를 Commit하여 이미지를 만들어본다.
@@ -58,6 +59,7 @@
 
 <br>
 
+
 ### 3. Build를 통해 이미지 만들기 - Dockerfile을 통해 빌드하여 이미지를 만들어본다.
 
 - VScode에서 폴더에 접속한 뒤, Dockerfile 이라는 파일을 만든다. (도커가 자동으로 인식한다)
@@ -66,11 +68,14 @@
   FROM ubuntu:20.04
   ```
 - 이후 Terminal에서 다음과 같이 입력한다.
-- "docker build -t web-server-build ."
+- ```bash
+  docker build -t web-server-build .
+  ```  
   - -t : 만들 이미지의 이름(Tag)
   - . : 현재 위치에 있는 Dockerfile을 사용한다는 뜻이다.
 - "docker images"를 통해 이미지들을 확인한다.  
-- <img src="https://user-images.githubusercontent.com/66783849/193822543-335b324d-dd10-4894-bd0d-ab47d26b28eb.png" width="70%">  
+  <img src="https://user-images.githubusercontent.com/66783849/193822543-335b324d-dd10-4894-bd0d-ab47d26b28eb.png" width="70%">  
+- 다음은 결과창이다.
   ```bash
   REPOSITORY                TAG       IMAGE ID       CREATED         SIZE  
   web-server-commit         latest    f5cf0c110c98   8 minutes ago   72.8MB  
