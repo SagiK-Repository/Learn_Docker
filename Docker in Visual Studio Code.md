@@ -1,3 +1,5 @@
+문서정보 : 2022.10.06. 작성, 작성자 [@SAgiKPJH](https://github.com/SAgiKPJH)
+
 # Docker in Visual Studio Code
 
 - 사이트 [Docker in Visual Studio Code](https://code.visualstudio.com/docs/containers/overview)를 기반으로 작성되었습니다.
