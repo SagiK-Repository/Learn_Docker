@@ -30,7 +30,7 @@
   - [x] : [도커 : 이미지 만드는 법 - Dockerfile & build](https://github.com/SagiK-Repository/Learn_Docker/blob/main/%EB%8F%84%EC%BB%A4%20-%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EB%A7%8C%EB%93%9C%EB%8A%94%20%EB%B2%95%20-%20Dockerfile%20%26%20build.md)
   - [ ] : [Docker compose]
 - 문서 리뷰
-  - [ ] : [Docker in Visual Studio Code]
+  - [ ] : [Docker in Visual Studio Code](https://github.com/SagiK-Repository/Learn_Docker/blob/main/Docker%20Compose.md)
   - [ ] : [Docker - Dockerfile 작성 / Build (이미지 제작)]
   - [ ] : [DockerDocs - docker build]
 
