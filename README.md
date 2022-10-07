@@ -28,6 +28,11 @@
   - [x] : [Docker 입문 수업](https://github.com/SagiK-Repository/Learn_Docker/blob/main/Docker%20%EC%9E%85%EB%AC%B8%20%EC%88%98%EC%97%85.md)
 - 중급과정
   - [x] : [도커 : 이미지 만드는 법 - Dockerfile & build](https://github.com/SagiK-Repository/Learn_Docker/blob/main/%EB%8F%84%EC%BB%A4%20-%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EB%A7%8C%EB%93%9C%EB%8A%94%20%EB%B2%95%20-%20Dockerfile%20%26%20build.md)
+  - [ ] : [Docker compose]
+  - 문서 리뷰
+    - [ ] : [Docker in Visual Studio Code]
+    - [ ] : [Docker - Dockerfile 작성 / Build (이미지 제작)]
+    - [ ] : [DockerDocs - docker build]
 
 
 <br>
@@ -38,3 +43,7 @@
 - [Docker 가 왜 좋은지 5분안에 설명해줌](https://www.youtube.com/watch?v=chnCcGCTyBg)
 - [Docker 입문수업](https://www.youtube.com/watch?v=Ps8HDIAyPD0&list=PLuHgQVnccGMDeMJsGq2O-55Ymtx0IdKWf)
 - [도커 : 이미지 만드는 법 - Dockerfile & build](https://www.youtube.com/watch?v=0kQC19w0gTI)
+- [Docker compose 를 이용해서 복잡한 도커 컨테이너를 제어하기](https://www.youtube.com/watch?v=EK6iYRCIjYs)
+- [Docker in Visual Studio Code](https://code.visualstudio.com/docs/containers/overview) 
+- [Docker - Dockerfile 작성 / Build (이미지 제작)](https://blog.d0ngd0nge.xyz/docker-dockerfile-write/)
+- [DockerDocs - docker build](https://docs.docker.com/engine/reference/commandline/build/)
