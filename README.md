@@ -28,9 +28,9 @@
   - [x] : [Docker 입문 수업](https://github.com/SagiK-Repository/Learn_Docker/blob/main/Docker%20%EC%9E%85%EB%AC%B8%20%EC%88%98%EC%97%85.md)
 - 중급과정
   - [x] : [도커 : 이미지 만드는 법 - Dockerfile & build](https://github.com/SagiK-Repository/Learn_Docker/blob/main/%EB%8F%84%EC%BB%A4%20-%20%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EB%A7%8C%EB%93%9C%EB%8A%94%20%EB%B2%95%20-%20Dockerfile%20%26%20build.md)
-  - [ ] : [Docker compose](https://github.com/SagiK-Repository/Learn_Docker/blob/main/Docker%20Compose.md)
+  - [x] : [Docker compose](https://github.com/SagiK-Repository/Learn_Docker/blob/main/Docker%20Compose.md)
 - 문서 리뷰
-  - [ ] : [Docker in Visual Studio Code]
+  - [x] : [Docker in Visual Studio Code](https://github.com/SagiK-Repository/Learn_Docker/blob/main/Docker%20in%20Visual%20Studio%20Code.md)
   - [ ] : [Docker - Dockerfile 작성 / Build (이미지 제작)]
   - [ ] : [DockerDocs - docker build]
 
