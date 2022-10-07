@@ -1,0 +1,301 @@
+# Docker - Dockerfile 작성 / Build (이미지 제작)
+
+- 사이트 [Docker - Dockerfile 작성 / Build (이미지 제작)](https://blog.d0ngd0nge.xyz/docker-dockerfile-write/)를 기반으로 작성되었습니다.
+
+### 개요
+
+- Dockerfile를 작성하여 사용자가 원하는 설계 방향이나 설정된 내용으로 도커 이미지를 제작할 수 있다.
+- 이미지를 작성할 수 있는 설정 파일로써, 자동으로 모든 걸 처리하여 이미지로 작성된다.
+- Dockerfile은 텍스트 형식이며, 파일명 또한 "Dockerfile" 이다. 확장자는 따로 존재하지 않는다.
+
+<br>
+
+### 주요 명령 옵션
+
+1. FROM : Docker Base Image (기반이 되는 이미지, <이미지 이름>:<태그> 형식으로 설정)
+2. MAINTAINER : 메인테이너 정보 (작성자 정보)
+3. RUN : Shell Script 또는 명령을 실행
+4. CMD : 컨테이너가 실행되었을 때 명령이 실행
+5. LABEL : 라벨 작성 (docker inspect 명령으로 label 확인할 수 있습니다.)
+6. EXPOSE : 호스트와 연결할 포트 번호를 설정한다.
+7. ENV : 환경변수 설정
+8. ADD : 파일 / 디렉터리 추가
+9. COPY : 파일 복사
+10. ENTRYPOINT : 컨테이너가 시작되었을 때 스크립트 실행
+11. VOLUME : 볼륨 마운트
+12. USER : 명령 실행할 사용자 권한 지정
+13. WORKDIR : "RUN", "CMD", "ENTRYPOINT" 명령이 실행될 작업 디렉터리
+14. ARG : Dockerfile 내부 변수
+15. ONBUILD : 다른 이미지의 Base Image로 쓰이는 경우 실행될 명령 수행
+16. SHELL : Default Shell 지정
+
+<br>
+
+### 목차
+
+1. Dockerfile 작성
+2. Dockerfile - Build, Docker Image Make
+3. Docker - Run
+4. Dockerfile - CMD
+5. Dockerfile - ENTRYPOINT
+6. Dockerfile - ONBUILD
+7. Dockerfile - ENV
+8. Dockerfile - WORKDIR
+9. Dockerfile - USER 
+10. Dockerfile - LABEL
+11. Dockerfile - EXPOSE
+12. Dockerfile - SHELL
+13. Dockerfile - ADD
+14. Dockerfile - COPY
+15. Dockerfile - VOLUME
+
+
+
+<br><br>
+
+## 1. Dockerfile 작성
+
+- "Dockerfile"를 작성하여 다음과 같이 작성한다.
+  ```bash
+  dongdonge@dongdonge$ vim Dockerfile
+  ```
+  ```bash
+  FROM ubuntu:16.04
+  
+  RUN apt-get update && apt-get install -y vim apache2
+  
+  COPY index.html /var/www/html/
+  
+  CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
+  ```
+
+1. "FROM ubuntu:16.04"
+   - 공식 이미지를 기반으로 이미지를 제작하며, 태그명이 생략되면 Base Image의 최신버전(Latest)로 기반된다.
+1. "RUN apt-get update && apt-get install -y vim apache2"ㅁ
+   - 컨테이너가 생성될 때 명령을 수행하며, vim와 Apache 웹서버를 설치한다.
+1. "COPY index.html /var/www/html/"
+   - 컨테이너 내부에 파일을 복사한다. 현재 index.html 파일을 /var/www/html/ 경로에 복사한다.
+1. "CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]"
+   - 컨테이너가 매번 실행될 때 마다 명령이 실행된다.
+
+<br><br>
+
+## 2. Dockerfile - Build, Docker Image Make
+
+- Dockerfile을 이미지로 제작하기 위해 Docker Build 작업을 하여야 한다.
+  ```bash
+  docker build <옵션> <Dockerfile 경로>
+  ```
+- 예시로 다음과 같이 작성한다.
+  ```bash
+  docker build -t web-server-build .
+  ```  
+- 속성 내용은 다음과 같다.
+  - -t : 만들 이미지의 이름(Tag)
+  - . : 현재 위치에 있는 Dockerfile을 사용한다는 뜻이다.
+- "docker images"를 통해 이미지들을 확인한다.  
+  <img src="https://user-images.githubusercontent.com/66783849/193822543-335b324d-dd10-4894-bd0d-ab47d26b28eb.png" width="70%">  
+  ```bash
+  REPOSITORY                TAG       IMAGE ID       CREATED         SIZE  
+  web-server-commit         latest    f5cf0c110c98   8 minutes ago   72.8MB  
+  juhyung1021/test-docker   latest    ff0b6a360a33   12 days ago     120MB  
+  fun-docker                latest    ff0b6a360a33   12 days ago     120MB  
+  httpd                     latest    f2789344c573   2 weeks ago     145MB  
+  web-server-build          latest    653dbc9875f1   4 weeks ago     72.8MB  
+  ubuntu                    20.04     a0ce5a295b63   4 weeks ago     72.8MB  
+  ```
+
+<br><br>
+
+## 3. Docker - Run
+
+- RUN을 통해 FROM 명령에서 설정한 베이스 이미지에 대해 실행하며, 패키지 설치 및 명령 실행에 사용될 수 있다.
+- 2가지 방법으로 RUN을 활용할 수 있다.
+  - Shell 방식
+  ```bash
+  RUN apt-get install apache2 vim -y
+  ```
+  - Exec 방식
+  ```bash
+  RUN ["/bin/bash", "-c", "apt-get install apache2 vim -y"]
+  ```
+
+<br><br>
+
+## 4. Dockerfile - CMD
+
+- 이미지를 바탕으로 생성된 컨테이너 실행 시 매번 명령을 실행한다. (Docker run / Docker start)
+- 참고로 하나의 CMD만 작성할 수 있으며, 중복일 경우 맨 마지막 하나만 유효 됩니다.
+- 2가지 방법으로 CMD를 활용할 수 있다.
+  - Shell 방식
+  ```bash
+  CMD apachectl -D FOREGROUND
+  ```
+  - Exec 방식
+  ```bash
+  CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
+  ```
+
+<br><br>
+
+## 5. Dockerfile - ENTRYPOINT
+
+- Dockerfile에서 빌드한 이미지를 컨테이너로 생성(Docker run)할때 단 한번만 실행한다.
+- 2가지 방법으로 CMD를 활용할 수 있다.
+  - ENTRYPOINT 방식
+  ```bash
+  ENTRYPOINT apachectl -D FOREGROUND
+  ```
+  - Exec 방식
+  ```bash
+  ENTRYPOINT ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
+  ```
+
+
+<br><br>
+
+## 6. Dockerfile - ONBUILD
+
+- 다른 이미지의 Base Image로 쓰이는 경우 빌드시 해당 명령이 실행된다.
+  ```bash
+  FROM ubuntu:16.04
+  
+  RUN apt-get update && apt-get install apcahe2 -y
+  
+  EXPOSE 80
+  
+  ONBUILD ADD website.tar /var/www/html/
+  
+  CMD ["/usr/sbin/apachectl", "-D", "FOREGROUND"]
+  ```
+
+<br><br>
+
+## 7. Dockerfile - ENV
+
+- Dockerfile을 통하여 [+환경변수+]를 컨테이너 안에 지정할 수 있다.
+- Dockerfile 대신 "docker run" 명령의 "--env" 옵션을 통하여 사용할 수도 있다.
+- 2가지 방법으로 ENV를 활용할 수 있다.
+  ```bash
+  ENV ServerName "DongDongE"
+  ENV ServerPw toor
+  ```
+  ```bash
+  ENV ServerName="DongDongE" \
+      ServerPw=toor
+  ```
+
+<br><br>
+
+## 8. Dockerfile - WORKDIR
+
+- 작업용 디렉터리를 설정하기 위해 사용된다.
+- 주로 "RUN", "CMD", "ENTRYPOINT", "COPY", "ADD" 등 명령에 같이 사용된다.
+- 해당 경로가 디렉터리가 존재하지 않는다면 [+새로 생성+]되며, Dockerfile내에서 "WORKDIR" 명령을 [+여러 번+] 사용할 수 있습니다.
+  ```bash
+  WORKDIR /abcd
+  WORKDIR efgh
+  WORKDIR ijk  # /abcd/efgh/ijk를 기본 위치로 설정
+  ```
+
+
+<br><br>
+
+## 9. Dockerfile - USER 
+
+- Dockerfile 내에서 명령을 실행하기 위해 사용자(권한)를 지정할 수 있다.
+- 아래 예제는 "RUN" 명령을 통해 사용자 계정을 생성한 뒤 "USER" 명령으로 사용자를 지정하였다.
+  ```bash
+  RUN ["useradd", "-m", "DongDongE"]
+  
+  USER DongDongE
+  RUN ["touch", "/home/DongDongE/test123"]
+  ```
+- 컨테이너 내부에서 Dockerfilr의 "USER" 명령을 통하여 "DongDongE" 사용자 권한으로 파일이 생성된다.
+
+
+<br><br>
+
+## 10. Dockerfile - LABEL
+
+- Docker Image의 작성자 정보, 타이틀, 버전, 코맨드 정보를 작성할때 사용된다.
+  ```bash
+  LABEL maintainer "DongDongE <DongDongE@d0ngd0nge.xyz>"
+  LABEL title="Test Docker"
+  LABEL version="0.1"
+  LABEL description="Docker Test Label"
+  ```
+- 다음과 같이 확인할 수 있다.
+  ```bash
+  # docker inspect --format="{{ .Config.Labels }}" <컨테이너명>
+  docker inspect --format="{{ .Config.Labels }}" label
+
+  결과 : map[description:Docker Test Label maintainer:DongDongE <DongDongE@d0ngd0nge.xyz> title:Test Docker version:0.1]
+  ```
+
+<br><br>
+
+## 11. Dockerfile - EXPOSE
+
+- Docker Container의 공개 포트를 호스트와 연결 (지정)할 때 사용한다.
+  ```bash
+  EXPOSE 80
+  EXPOSE 443
+
+  # 또는 
+  EXPOSE 80 443
+  ```
+- Dockerfile의 EXPOSE 명령은 실행 중인 컨테이너와 호스트와 연결만 하고, 외부에 노출되지는 않는다.
+- `docker run -p 8080:80 ...`를 통해 컨테이너 포트를 외부에 노출하여, 외부에서 접속할 수 있게 한다.
+
+<br><br>
+
+## 12. Dockerfile - SHELL
+
+- Dockerfile 내부에서 명령을 실행할 때 Shell을 지정할 수 있으며, Default로 리눅스 경우 "/bin/sh"로 설정된다.
+- "RUN", "CMD", "ENTRYPOINT" 명령을 사용할 때만 유효하다.
+  ```bash
+  # SHELL ["SHELL 경로", "파라미터"]
+  SHELL ["/bin/bash", "-c"]
+
+  RUN echo "TEST"
+  ```
+- 예제의 경우 "/bin/bash" Shell로 변경되어, "RUN" 명령을 실행합니다.
+
+
+<br><br>
+
+## 13. Dockerfile - ADD
+
+- 호스트 상에 존재하는 파일/디렉터리를 Docker Image에 추가할 때 사용한다.
+  ```bash
+  # ADD <호스트의 파일 경로> <Docker Image의 파일 경로>
+  # ADD ["<호스트의 파일 경로>", "<Docker Image의 파일 경로>"]
+  ADD index.php /var/www/html/
+  ```
+- 웹서버 이미지를 만들기 위해 호스트의 "index.php" 파일을 도커 이미지의 "/var/www/html/"안에 추가하려면 예제와 같이 작성한다.
+- ADD 명령어는 파일/디렉터리를 호스트뿐만 아니라 URL처럼 원격에서 파일을 다운로드 받을 수 있다.
+
+<br><br>
+
+## 14. Dockerfile - COPY
+
+- 호스트 상에 존재하는 파일/디렉터리를 Docker Image에 복사할 때 사용한다.
+- "COPY" 명령어는 "ADD" 명령어와 비슷하지만, COPY 명령은 ADD처럼 URL이나 원격 파일의 다운로드를 하지 못하고, [+순수히 파일 복사기능+]만 가지고 있다.
+  ```bash
+  # COPY <호스트의 파일 경로> <Docker Image의 파일 경로>
+  # COPY ["<호스트의 파일 경로>", "<Docker Image의 파일 경로>"]
+  COPY index.php /var/www/html/
+  ```
+
+
+<br><br>
+
+## 15. Dockerfile - VOLUME
+
+- "VOLUME" 명령은 도커 컨테이너의 파일/디렉토리를 컨테이너에 저장하지 않고 호스트의 "/var/lib/docker/volumes/" 경로에 저장된다.
+- "VOLUME" 명령을 사용함으로써 여러 개의 인수로 마운트할 수 있다.
+- 영구적인 데이터를 컨테이너에 저장하지 않고 컨테이너 외부 스토리지인 호스트에 저장하기에 적합하다.
+  ```bash
+  VOLUME /var/log
+  ```
