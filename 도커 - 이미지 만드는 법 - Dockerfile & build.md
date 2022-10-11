@@ -127,9 +127,9 @@
    ```
    - Terminal에서 다음과 같이 실행한다.
    - "docker build -t web-server .; docker rm --force web-server; docker run -p 8888:8000 --name web-server web-server-build;"  
-   <img src="https://user-images.githubusercontent.com/66783849/193821751-6b16253e-5956-4e9f-b44b-06c34b75f8d0.png" width="70%">
+   <img src="https://user-images.githubusercontent.com/66783849/193821751-6b16253e-5956-4e9f-b44b-06c34b75f8d0.png" width="70%">  
    - 이후 인터넷 브라우저에 [http://localhost:8888/](http://localhost:8888/)를 검색하여 창이 나타남을 확인한다.  
-   <img src="https://user-images.githubusercontent.com/66783849/193821639-3afbe5c9-9d8b-4a43-a7a6-aabf1423d73d.png">
+   <img src="https://user-images.githubusercontent.com/66783849/193821639-3afbe5c9-9d8b-4a43-a7a6-aabf1423d73d.png">  
    - Overriding이 가능한데, 이 경우 CMD[] 명령어를 "pwd"로 대체하여 본다. 다음과 같이 실행한다.  
    - "docker build -t web-server .; docker rm --force web-server; docker run -p 8888:8000 --name web-server web-server-build pwd;"  
-   <img src="https://user-images.githubusercontent.com/66783849/193822363-4731554d-aecf-49ef-8811-c974c74a2f3b.png" width="70%">
+   <img src="https://user-images.githubusercontent.com/66783849/193822363-4731554d-aecf-49ef-8811-c974c74a2f3b.png" width="70%">  
