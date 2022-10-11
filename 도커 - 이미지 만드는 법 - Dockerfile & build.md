@@ -112,24 +112,24 @@
 <br>
 
 ### 2번의 경우를 Build로 진행한다. Build의 경우는 다음과 같이 빌드한다.
-   - 폴더에 index.html을 만들어 "Hello, <strong>Docker</strong>"라고 채워 넣는다.
-   - Docker에 다음 내용을 채워넣는다.
-   ```bash
-   FROM ubuntu:20.04
-   #RUN apt update # 매번 RUN 하는 것은 레이어가 하나 생성되는 것이기 때문에 효율적이지 못하다
-   #RUN apt install python3
-   # 한번에 쓴다.
-   RUN apt update && apt install -y python3 # && 앞이 실행하고 성공하면 뒷 구문 실행, -y : yes/no 물을 때 y
-   WORKDIR /var/www/html
-   COPY ["index.html", "."]
-   # RUN echo "Hello, <strong>Docker</strong>" > index.html # 이렇게도 생성 가능하다.
-   CMD ["python3", "-u", "-m", "http.server"] # -u : 현재 상황에 대한 로그가 출력된다.
-   ```
-   - Terminal에서 다음과 같이 실행한다.
-   - "docker build -t web-server .; docker rm --force web-server; docker run -p 8888:8000 --name web-server web-server-build;"  
-   <img src="https://user-images.githubusercontent.com/66783849/193821751-6b16253e-5956-4e9f-b44b-06c34b75f8d0.png" width="70%">  
-   - 이후 인터넷 브라우저에 [http://localhost:8888/](http://localhost:8888/)를 검색하여 창이 나타남을 확인한다.  
-   <img src="https://user-images.githubusercontent.com/66783849/193821639-3afbe5c9-9d8b-4a43-a7a6-aabf1423d73d.png">  
-   - Overriding이 가능한데, 이 경우 CMD[] 명령어를 "pwd"로 대체하여 본다. 다음과 같이 실행한다.  
-   - "docker build -t web-server .; docker rm --force web-server; docker run -p 8888:8000 --name web-server web-server-build pwd;"  
-   <img src="https://user-images.githubusercontent.com/66783849/193822363-4731554d-aecf-49ef-8811-c974c74a2f3b.png" width="70%">  
+
+- 폴더에 index.html을 만들어 "Hello, <strong>Docker</strong>"라고 채워 넣는다.
+- Docker에 다음 내용을 채워넣는다.
+  ```bash
+  FROM ubuntu:20.04
+  #RUN apt update # 매번 RUN 하는 것은 레이어가 하나 생성되는 것이기 때문에 효율적이지 못하다
+  #RUN apt install python3
+  # 한번에 쓴다.
+  RUN apt update && apt install -y python3 # && 앞이 실행하고 성공하면 뒷 구문 실행, -y : yes/no 물을 때 y
+  WORKDIR /var/www/html
+  COPY ["index.html", "."]
+  # RUN echo "Hello, <strong>Docker</strong>" > index.html # 이렇게도 생성 가능하다.
+  CMD ["python3", "-u", "-m", "http.server"] # -u : 현재 상황에 대한 로그가 출력된다.
+  ```
+- Terminal에서 다음과 같이 실행한다.
+- "docker build -t web-server .; docker rm --force web-server; docker run -p 8888:8000 --name web-server web-server-build;"   <img src="https://user-images.githubusercontent.com/66783849/193821751-6b16253e-5956-4e9f-b44b-06c34b75f8d0.png" width="70%">  
+- 이후 인터넷 브라우저에 [http://localhost:8888/](http://localhost:8888/)를 검색하여 창이 나타남을 확인한다.  
+  <img src="https://user-images.githubusercontent.com/66783849/193821639-3afbe5c9-9d8b-4a43-a7a6-aabf1423d73d.png">  
+- Overriding이 가능한데, 이 경우 CMD[] 명령어를 "pwd"로 대체하여 본다. 다음과 같이 실행한다.  
+- "docker build -t web-server .; docker rm --force web-server; docker run -p 8888:8000 --name web-server web-server-build pwd;"  
+  <img src="https://user-images.githubusercontent.com/66783849/193822363-4731554d-aecf-49ef-8811-c974c74a2f3b.png" width="70%">  
