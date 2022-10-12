@@ -63,8 +63,8 @@
   ```
 - container 및 image 제거
   ```bash
-  docker rm --force imagetestcontainer  # Container 삭제
-  docker rmi juhyung1021/juhyungmirero  # Image 삭제
+  docker rm --force container_name  # Container 삭제
+  docker rmi image_name  # Image 삭제
   ```
 
 <br>
