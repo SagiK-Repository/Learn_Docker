@@ -36,7 +36,7 @@
 
 <br>
 
-### ⭐ Docker에서 많이 쓰이는 CMD 명령어 정리
+## ⭐ Docker에서 많이 쓰이는 CMD 명령어 정리
 
 - Dockerfile Build (대문자 불가)
   ```bash
