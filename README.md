@@ -66,7 +66,12 @@
   docker rm --force container_name  # Container 강제 삭제
   docker rmi image_name  # Image 삭제
   ```
-
+- `<none>` Image 삭제
+  ```bash
+  docker rmi $(docker images -f "dangling=true" -q)
+  docker image prune
+  ```
+  
 <br>
 
 ### 참고 사이트
