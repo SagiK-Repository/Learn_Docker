@@ -34,6 +34,38 @@
   - [x] : [Docker - Dockerfile 작성 및 Build (이미지 제작)](https://github.com/SagiK-Repository/Learn_Docker/blob/main/Docker%20-%20Dockerfile%20%EC%9E%91%EC%84%B1%20%EB%B0%8F%20Build%20(%EC%9D%B4%EB%AF%B8%EC%A7%80%20%EC%A0%9C%EC%9E%91))
   - [x] : [DockerDocs - docker build](https://github.com/SagiK-Repository/Learn_Docker/blob/main/DockerDocs%20-%20docker%20build.md)
 
+<br>
+
+### ⭐ Docker에서 많이 쓰이는 CMD 명령어 정리
+
+- Dockerfile Build (대문자 불가)
+  ```bash
+  docker build -t image_name .
+  docker build -t image_name -f dockerfile # 도커 파일이 다른 이름 또는 다른 폴더에 있을 시
+  ```
+- Make Container And Run 및 bash 접근 (CMD /bin/bash 설정을 안해놓을 시)
+  ```bash
+  docker run --name container_name -it image_name /bin/bash
+  ```
+- Make Container And Run (CMD /bin/bash 설정을 해놓을 시 위와 동일)
+  ```bash
+  docker run --name container_name image_name
+  ```
+- 만일 중간에 나와버려서 재 접근 해야할 시
+  ```bash
+  docker start container_name
+  docker exec -it container_name /bin/bash
+  ```
+- container 및 image 상태 확인
+  ```bash
+  docker ps  # Container 확인
+  docker images  # Image 확인
+  ```
+- container 및 image 제거
+  ```bash
+  docker rm --force imagetestcontainer  # Container 삭제
+  docker rmi juhyung1021/juhyungmirero  # Image 삭제
+  ```
 
 <br>
 
