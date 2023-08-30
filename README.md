@@ -77,6 +77,17 @@
   docker rmi $(docker images -f "dangling=true" -q)
   docker image prune
   ```
+- Docker 배포
+  ```bash
+  # 이름 변경
+  docker tag dockername:latest juhyung1021/test-docker:latest
+
+  # Docker Login
+  docker login  
+
+  # Docker 배포
+  docker push juhyung1021/dockername:latest"
+  ```
   
 <br>
 
