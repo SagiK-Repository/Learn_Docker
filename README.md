@@ -88,6 +88,20 @@
   # Docker 배포
   docker push juhyung1021/dockername:latest"
   ```
+- Docker-Compose
+  ```bash
+  # 실행 또는 실행중인 compose 업데이트 (-d : 백드라운드, -f : 파일 지정 )
+  docker-compose -f docker-compose.yml up -d
+  
+  # 부분 재실행
+  docker-compose restart service1 service2 service3 ...
+  
+  # 부분 업데이트
+  docker-compose up -d --build servicename
+  
+  # 삭제
+  docker-compose down
+  ```
   
 <br>
 
