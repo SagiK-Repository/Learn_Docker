@@ -88,7 +88,7 @@
   # Docker 배포
   docker push juhyung1021/dockername:latest"
   ```
-- Docker-Compose
+- Docker-Compose (https://kimjingo.tistory.com/108)
   ```bash
   # 실행 또는 실행중인 compose 업데이트 (-d : 백드라운드, -f : 파일 지정 )
   docker-compose -f docker-compose.yml up -d
