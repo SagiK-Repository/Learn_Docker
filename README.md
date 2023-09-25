@@ -102,6 +102,42 @@
   # 삭제
   docker-compose down
   ```
+
+<br>
+
+### Resource 제한
+
+- docker  
+```bash
+docker run -m 512m nginx # Memory 512MB 제한
+docker run -m 512m --memory-reservation=256m nginx # Memory 부족 감지시 활성화
+
+docker run --cpus=2 nginx # 최대 2개 CPU 사용 제한
+docker run --cpus=2 --cpu-shares=2000 nginx # CPU 우선순위 부여 (1024 기본, 높은수록 우선순위 높다)
+```
+- docker-compose
+```yml
+services:
+  service:
+    image: nginx
+    deploy:
+        resources:
+            limits:
+              cpus: 0.50
+              memory: 512M
+            reservations:
+              cpus: 0.25
+              memory: 128M
+```
+```yml
+service:
+  image: nginx
+  mem_limit: 512m
+  mem_reservation: 128M
+  cpus: 0.5
+  ports:
+    - "80:80"
+```
   
 <br>
 
