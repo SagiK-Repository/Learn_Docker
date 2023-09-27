@@ -48,6 +48,7 @@
   docker run --name container_test -it image_test /bin/bash
   docker run --name container_test -it image_test:latest /bin/bash  # 보다 정확히 (버전 표시)
   docker run --name container_test -u user -it image_test:latest /bin/bash   # 다른 유저로 접근
+  docker run -d image_test:latest # 백그라운드 실행
   ```
 - Make Container And Run (CMD /bin/bash 설정을 해놓을 시 위와 동일)
   ```bash
