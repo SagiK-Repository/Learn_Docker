@@ -139,7 +139,15 @@ service:
   ports:
     - "80:80"
 ```
-  
+
+<br>
+
+### 기타 docker 사용 내용
+
+- [NVIDIA Container Toolkit이 설치 방법](https://velog.io/@codeinsights/ML-Docker-%ED%99%98%EA%B2%BD%EC%97%90%EC%84%9C-GPU-%EC%82%AC%EC%9A%A9%ED%95%98%EA%B8%B0)
+- [Docker Compose GPU 사용 (nvidia) 오류시](https://github.com/SagiK-Repository/Docker_Python/issues/2)
+- [Docker GPU 사용에 대하여](https://github.com/SagiK-Repository/Docker_Python/issues/3)
+
 <br>
 
 ### 참고 사이트
