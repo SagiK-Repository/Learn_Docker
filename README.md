@@ -59,6 +59,10 @@
   docker start container_name
   docker exec -it container_name /bin/bash
   ```
+- root 권한으로 접근 방법
+  ```bash
+  docker exec -u 0 -it container_name bash
+  ```
 - container 및 image 상태 확인
   ```bash
   docker ps  # Container 확인
