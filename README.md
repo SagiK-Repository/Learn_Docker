@@ -41,7 +41,7 @@
 - Dockerfile Build (대문자 불가)
   ```bash
   docker build -t image_name .
-  docker build -t image_name -f dockerfile # 도커 파일이 다른 이름 또는 다른 폴더에 있을 시
+  docker build -t image_name -f dockerfile . # 도커 파일이 다른 이름 또는 다른 폴더에 있을 시
   ```
 - Make Container And Run 및 bash 접근 (CMD /bin/bash 설정을 안해놓을 시)
   ```bash
